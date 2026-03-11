@@ -187,7 +187,7 @@ body {
 }
 
 .logo-left img:last-child{
-    width:60px;
+    width:100px;
 }
 
 /* CENTER TITLE */
@@ -201,7 +201,7 @@ body {
 
 /* RIGHT LOGO */
 .logo-right img{
-    width:90px;
+    width:160px;
 }
 
 /* MENU CENTER */
