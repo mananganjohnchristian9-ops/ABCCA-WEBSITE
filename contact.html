@@ -5,114 +5,308 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - ABCCA Training School</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Contact Info Panel (White) ── */
+        .contact-info-white {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 6px 32px rgba(15,31,61,0.10);
+            border-top: 4px solid #e8457a;
+        }
+
+        .contact-info-white h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #0f1f3d;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e8ecf2;
+        }
+
+        .info-boxes { display: flex; flex-direction: column; gap: 0.85rem; }
+
+        .info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: #f8f9fc;
+            border: 1px solid #e8ecf2;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            transition: all 0.25s ease;
+        }
+
+        .info-box:hover {
+            border-color: rgba(232,69,122,0.35);
+            box-shadow: 0 4px 16px rgba(232,69,122,0.08);
+            transform: translateX(3px);
+        }
+
+        .info-box-icon {
+            width: 42px;
+            height: 42px;
+            background: #fdf0f5;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-box-content h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #e8457a;
+            margin-bottom: 4px;
+        }
+
+        .info-box-content p { font-size: 0.88rem; color: #4a5568; line-height: 1.6; margin: 0; }
+
+        .info-box-content a { font-size: 0.88rem; color: #000; font-weight: 600; text-decoration: none; }
+        .info-box-content a:hover { text-decoration: underline; }
+
+        .fb-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+            background: linear-gradient(135deg, #e8457a, #c0315f);
+            color: #fff !important;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none !important;
+            transition: opacity 0.2s;
+        }
+
+        .fb-btn:hover { opacity: 0.88; }
+
+        /* ── Modals ── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(15,31,61,0.55);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            max-width: 440px;
+            width: 90%;
+            box-shadow: 0 24px 60px rgba(15,31,61,0.2);
+            text-align: center;
+            animation: popIn 0.25s ease;
+        }
+
+        .modal-icon { font-size: 2.8rem; margin-bottom: 0.75rem; }
+
+        .modal-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #0f1f3d;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-box > p { color: #718096; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.6; }
+
+        #confirmDetails {
+            background: #fdf0f5;
+            border: 1px solid rgba(232,69,122,0.15);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.88rem;
+            color: #1e2a3a;
+            line-height: 2;
+            margin-bottom: 1.75rem;
+        }
+
+        .modal-buttons { display: flex; gap: 12px; }
+
+        .btn-cancel {
+            flex: 1; padding: 11px; border-radius: 8px;
+            border: 1.5px solid #e8ecf2; background: #fff;
+            color: #4a5568; font-size: 0.95rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: inherit;
+        }
+
+        .btn-cancel:hover { background: #f8f9fc; border-color: #c0315f; color: #c0315f; }
+
+        .btn-confirm {
+            flex: 1; padding: 11px; border-radius: 8px; border: none;
+            background: linear-gradient(135deg, #e8457a, #c0315f);
+            color: #fff; font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 14px rgba(232,69,122,0.3);
+            transition: all 0.2s; font-family: inherit;
+        }
+
+        .btn-confirm:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(232,69,122,0.4); }
+        .btn-confirm:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+        .btn-ok {
+            background: linear-gradient(135deg, #e8457a, #c0315f);
+            color: #fff; border: none; padding: 10px 30px;
+            border-radius: 8px; font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; font-family: inherit;
+            box-shadow: 0 4px 14px rgba(232,69,122,0.3);
+            margin-top: 0.5rem;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.92) translateY(10px); }
+            to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+
     <nav class="navbar">
         <div class="nav-container-vertical">
-
-            <!-- TOP ROW -->
             <div class="header-top">
-
                 <div class="logo-left">
                     <img src="SSIC_LOGO.jpg" alt="Stoneworks Logo">
                     <img src="LGU_LOGO.png" alt="LGU Logo">
                 </div>
-
-                <h1 class="site-title">
-                    ASIAN BUSINESS CABLETOW COOPERATIVE ACADEMY
-                </h1>
-
+                <h1 class="site-title">ASIAN BUSINESS CABLETOW COOPERATIVE ACADEMY, INC.</h1>
                 <div class="logo-right">
+                    <img src="TESDA_LOGO.png" alt="TESDA Logo">
                     <img src="ABCCA_LOGO.jpg" alt="ABCCA Logo">
                 </div>
-
             </div>
-
-            <!-- MENU -->
             <ul class="nav-menu-left" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Gallery</a></li>
                 <li><a href="sponsors.html">Requirements</a></li>
                 <li><a href="partners.html">Partners</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
-
         </div>
     </nav>
 
-    <!-- Main Content -->
-
-    <!-- Main Content -->
     <main>
-        <!-- Page Header -->
         <section class="page-header">
             <div class="container">
                 <h2>Contact Us</h2>
-                <p>Get in touch with our team</p>
+                <p>Get in touch with our team — we're happy to help</p>
             </div>
         </section>
-                    <!-- Contact Info -->
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        <div class="contact-info-grid">
-                            <div class="info-item">
-                                <div class="info-icon">📧</div>
-                                <div class="info-content">
-                                    <h4>Email</h4>
-                                    <p><a href="mailto:abcca.tvet.cavite@abcca.edu.ph">abcca.tvet.cavite@abcca.edu.ph</a></p>
-                                </div>
-                            </div>
 
-                            <div class="info-item">
-                                <div class="info-icon">📞</div>
-                                <div class="info-content">
-                                    <h4>Phone</h4>
-                                    <p><a href="tel:+639975307651">(63+) 997-5307-651</a></p>
-                                </div>
-                            </div>
+        <section class="contact-section">
+            <div class="contact-wrapper">
 
-                            <div class="info-item">
-                                <div class="info-icon">📍</div>
-                                <div class="info-content">
-                                    <h4>Training School Address</h4>
-                                    <p>ABCCA Training School</p>
-                                    <p>Judge Ibañez Street, Samonte Park</p>
-                                    <p>Barangay 62-A (Kangkong-A), San Roque District</p>
-                                    <p>Cavite City</p>
-                                </div>
-                            </div>
+                <!-- LEFT: Send a Message Form -->
+                <div class="message-form-panel">
+                    <h3>Send Us a Message</h3>
+                    <p class="form-subheading">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-                            <div class="info-item">
-                                <div class="info-icon">🕒</div>
-                                <div class="info-content">
-                                    <h4>Training Hours</h4>
-                                    <p>NC I Classes: Mon-Sat 8:00 AM - 5:00 PM</p>
-                                    <p>NC II Classes: Mon-Sat 8:00 AM - 5:00 PM</p>
-                                </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="e.g. Juan Dela Cruz" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="barangay">Barangay <span class="required">*</span></label>
+                                <input type="text" id="barangay" name="barangay" placeholder="e.g. Brgy. 62-A" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age <span class="required">*</span></label>
+                                <input type="number" id="age" name="age" placeholder="e.g. 25" min="15" max="99" required>
                             </div>
                         </div>
 
-                        <div class="social-links">
-                            <h4>Follow Us</h4>
-                            <div class="social-icons">
-                                <a href="https://web.facebook.com/profile.php?id=61576876592871" class="social-icon" target="_blank">Facebook</a>
+                        <div class="form-group">
+                            <label for="senderEmail">Your Email Address <span class="required">*</span></label>
+                            <input type="email" id="senderEmail" name="senderEmail" placeholder="e.g. yourname@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" placeholder="Write your inquiry or message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-send">✉️ Send Message</button>
+                        <p class="form-note">Your message will be sent directly to <strong>abcca.tvet.cavite@abcca.edu.ph</strong>.</p>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Contact Info (White Boxes) -->
+                <div class="contact-info-white">
+                    <h3>Contact Information</h3>
+                    <div class="info-boxes">
+
+                        <div class="info-box">
+                            <div class="info-box-icon">📧</div>
+                            <div class="info-box-content">
+                                <h4>Email</h4>
+                                <a href="mailto:abcca.tvet.cavite@abcca.edu.ph">abcca.tvet.cavite@abcca.edu.ph</a>
                             </div>
                         </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">📞</div>
+                            <div class="info-box-content">
+                                <h4>Phone</h4>
+                                <a href="tel:+639975307651">(63+) 997-5307-651</a>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">📍</div>
+                            <div class="info-box-content">
+                                <h4>Training School Address</h4>
+                                <p>ABCCA Training School</p>
+                                <p>Judge Ibañez Street, Samonte Park</p>
+                                <p>Barangay 62-A (Kangkong-A)</p>
+                                <p>San Roque District, Cavite City</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">🕒</div>
+                            <div class="info-box-content">
+                                <h4>Training Hours</h4>
+                                <p>NC I Classes: Mon–Sat 7:00 AM – 4:00 PM</p>
+                                <p>NC II Classes: To Be Announce</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-icon">👥</div>
+                            <div class="info-box-content">
+                                <h4>Follow Us</h4>
+                                <a href="https://web.facebook.com/profile.php?id=61576876592871"
+                                class="fb-btn" target="_blank" rel="noopener">Facebook</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Asian Business Cabletow Cooperative Academy</h4>
-                    <p>Non-Profit Educational Institution offering SMAW NC I and NC II certifications.</p>
+                    <h4>Asian Business Cabletow Cooperative Academy, Inc.</h4>
+                    <p>Non-Profit Educational Institution offering free SMAW NC I and NC II certifications in Cavite City.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -122,6 +316,7 @@
                         <li><a href="projects.html">Gallery</a></li>
                         <li><a href="sponsors.html">Requirements</a></li>
                         <li><a href="partners.html">Partners</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -129,17 +324,118 @@
                     <h4>Contact Info</h4>
                     <p>Email: abcca.tvet.cavite@abcca.edu.ph</p>
                     <p>Phone: (63) 997-5307-651</p>
-                    <p>Address: Judge Ibañez Street, Samonte Park, Barangay 62-A (Kangkong-A), San Roque District Cavite City</p>
+                    <p>Address: Judge Ibañez Street, Samonte Park, Brgy. 62-A, San Roque District, Cavite City</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Asian Business Cabletow Cooperative Academy. All rights reserved.</p>
+                <p>&copy; 2026 Asian Business Cabletow Cooperative Academy, Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">📨</div>
+            <h3>Confirm Your Message</h3>
+            <p>Please review your details before sending.</p>
+            <div id="confirmDetails"></div>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelBtn">✕ Cancel</button>
+                <button class="btn-confirm" id="confirmBtn">✉️ Send Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">🎉</div>
+            <h3>Message Sent!</h3>
+            <p>Your message has been sent successfully to ABCCA.<br>We'll get back to you as soon as possible!</p>
+            <button class="btn-ok" id="okBtn">OK</button>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("A_02ZxoEQrSQmATht");
+
+        let pendingData = {};
+
+        // STEP 1: Form submit → show confirmation modal
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName    = document.getElementById('fullName').value.trim();
+            const barangay    = document.getElementById('barangay').value.trim();
+            const age         = document.getElementById('age').value.trim();
+            const senderEmail = document.getElementById('senderEmail').value.trim();
+            const message     = document.getElementById('message').value.trim();
+
+            if (!fullName || !barangay || !age || !senderEmail || !message) {
+                alert('Please fill in all required fields before sending.');
+                return;
+            }
+
+            pendingData = { fullName, barangay, age, senderEmail, message };
+
+            document.getElementById('confirmDetails').innerHTML =
+                `<strong>Name:</strong> ${fullName}<br>
+                <strong>Barangay:</strong> ${barangay}<br>
+                <strong>Age:</strong> ${age}<br>
+                <strong>Email:</strong> ${senderEmail}<br>
+                <strong>Message:</strong> ${message}`;
+
+            document.getElementById('confirmModal').style.display = 'flex';
+        });
+
+        // STEP 2: Confirm → send via EmailJS
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            const btn = this;
+            btn.textContent = '⏳ Sending...';
+            btn.disabled = true;
+
+            emailjs.send("service_fridl0d", "template_gcqfjfv", {
+                from_name: pendingData.fullName,
+                barangay:  pendingData.barangay,
+                age:       pendingData.age,
+                reply_to:  pendingData.senderEmail,
+                message:   pendingData.message
+            })
+            .then(function() {
+                document.getElementById('confirmModal').style.display = 'none';
+                document.getElementById('contactForm').reset();
+                btn.textContent = '✉️ Send Now';
+                btn.disabled = false;
+                document.getElementById('successModal').style.display = 'flex';
+            })
+            .catch(function(error) {
+                btn.textContent = '✉️ Send Now';
+                btn.disabled = false;
+                alert('Failed to send. Please try again.\nError: ' + JSON.stringify(error));
+            });
+        });
+
+        // Cancel
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            document.getElementById('confirmModal').style.display = 'none';
+        });
+
+        // OK on success
+        document.getElementById('okBtn').addEventListener('click', function() {
+            document.getElementById('successModal').style.display = 'none';
+        });
+
+        // Close modals on backdrop click
+        ['confirmModal', 'successModal'].forEach(function(id) {
+            document.getElementById(id).addEventListener('click', function(e) {
+                if (e.target === this) this.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 </html>
-
-
