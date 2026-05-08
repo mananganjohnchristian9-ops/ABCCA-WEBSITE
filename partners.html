@@ -5,295 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Partners - ABCCA Training School</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .partner-link{
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.partner-card{
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-}
-
-.partner-card:hover{
-    transform: translateY(-8px) scale(1.02);
-}
-
-.partner-card-image-wrap{
-    flex-shrink: 0;
-    width: 380px;
-    height: 260px;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f7f7f7;
-
-    transition: all 0.3s ease;
-}
-
-.partner-card:hover .partner-card-image-wrap{
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.partner-card-image-wrap img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-
-    transition: transform 0.3s ease;
-}
-
-.partner-card:hover img{
-    transform: scale(1.05);
-}
-        .partners-section {
-            padding: 4rem 0;
-            background-color: #fff;
-        }
-
-        .partners-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .partners-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .partners-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .partners-title p {
-            color: var(--text-light);
-            font-size: 1.1rem;
-        }
-
-        .partners-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 5rem;
-        }
-
-        .partner-card {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            background: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-            padding: 0 !important;
-        }
-
-        .partner-card.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .partner-card-content {
-            flex: 1;
-        }
-
-        .partner-card-content h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-dark, #1a1a2e);
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-        }
-
-        .partner-card-content .partner-role {
-            display: block;
-            color: var(--primary-color, #e91e8c);
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .partner-card-content p {
-            color: #333;
-            font-size: 1rem;
-            line-height: 1.85;
-            text-align: justify;
-            margin: 0;
-        }
-
-        .partner-card-image-wrap {
-            flex-shrink: 0;
-            width: 380px;
-            height: 260px;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f7f7f7;
-        }
-
-        .partner-card-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @media (max-width: 768px) {
-            .partner-card,
-            .partner-card.reverse {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .partner-card-image-wrap {
-                width: 100%;
-                height: 220px;
-            }
-
-            .partner-card-content p {
-                text-align: left;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+
     <nav class="navbar">
         <div class="nav-container-vertical">
-
-            <!-- TOP ROW -->
             <div class="header-top">
-
                 <div class="logo-left">
                     <img src="SSIC_LOGO.jpg" alt="Stoneworks Logo">
                     <img src="LGU_LOGO.png" alt="LGU Logo">
                 </div>
-
-                <h1 class="site-title">
-                    ASIAN BUSINESS CABLETOW COOPERATIVE ACADEMY
-                </h1>
-
+                <h1 class="site-title">ASIAN BUSINESS CABLETOW COOPERATIVE ACADEMY, INC.</h1>
                 <div class="logo-right">
+                    <img src="TESDA_LOGO.png" alt="TESDA Logo">
                     <img src="ABCCA_LOGO.jpg" alt="ABCCA Logo">
                 </div>
-
             </div>
-
-            <!-- MENU -->
             <ul class="nav-menu-left" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Gallery</a></li>
                 <li><a href="sponsors.html">Requirements</a></li>
                 <li><a href="partners.html" class="active">Partners</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
+        <section class="page-header">
+            <div class="container">
                 <h2>Our Partners</h2>
                 <p>Meet the organizations behind ABCCA's success</p>
             </div>
         </section>
 
-        <!-- Partners Section -->
         <section class="partners-section">
             <div class="partners-container">
                 <div class="partners-title">
                     <h2>Proud Partners</h2>
-                    <p>Collaborative organizations supporting ABCCA's mission</p>
+                    <p>Collaborative organizations supporting ABCCA's mission of accessible vocational education</p>
                 </div>
 
-                <div class="partners-grid">
-
-                    <!-- SSIC: description left, logo right -->
-                    <a href="https://www.stoneworkscorp.com/" class="partner-link" target="_blank">
-                    <div class="partner-card">
-
+                <!-- SSIC -->
+                <a href="https://www.stoneworkscorp.com/" class="partner-link" target="_blank" rel="noopener">
+                    <div class="partner-card-big">
                         <div class="partner-card-content">
                             <h3>Stoneworks Specialist International Corporation</h3>
                             <span class="partner-role">Strategic Partner & Sponsor</span>
-                            <p>
-                            Stoneworks Specialist International Corporation is a leading organization providing expertise and resources to support ABCCA's welding training programs. Their commitment to vocational excellence helps shape skilled workers for the industry.
-                            </p>
+                            <p>Stoneworks Specialist International Corporation is a leading organization providing expertise and resources to support ABCCA's welding training programs. Their commitment to vocational excellence and industry knowledge helps shape skilled workers who are ready to meet the demands of today's competitive job market.</p>
                         </div>
-
                         <div class="partner-card-image-wrap">
                             <img src="SSIC_LOGO.jpg" alt="Stoneworks Specialist International Corporation">
                         </div>
-
                     </div>
-                    </a>
+                </a>
 
-                    <!-- LGU: logo left, description right -->
-                    <a href="http://cavitecity.gov.ph/" class="partner-link" target="_blank">
-                    <div class="partner-card reverse">
-
+                <!-- LGU -->
+                <a href="http://cavitecity.gov.ph/" class="partner-link" target="_blank" rel="noopener">
+                    <div class="partner-card-big reverse">
                         <div class="partner-card-content">
-                            <h3>Local Government Unit</h3>
+                            <h3>Local Government Unit of Cavite City</h3>
                             <span class="partner-role">Government Partner & Advocate</span>
-                            <p>
-                            The Local Government Unit provides institutional support and regulatory oversight for ABCCA's educational initiatives. Their involvement ensures that our training programs meet national standards and serve our community's development goals.
-                            </p>
+                            <p>The Local Government Unit of Cavite City provides vital institutional support and regulatory oversight for ABCCA's educational initiatives. Their involvement ensures that our training programs align with national standards and serve our community's broader development goals, creating sustainable employment pathways for Cavite residents.</p>
                         </div>
-
                         <div class="partner-card-image-wrap">
-                            <img src="LGU_LOGO.png" alt="Local Government Unit">
+                            <img src="LGU_LOGO.png" alt="Local Government Unit of Cavite City">
                         </div>
-
                     </div>
-                    </a>
+                </a>
 
-                    <!-- TESDA: description left, logo right -->
-                    <a href="https://www.tesda.gov.ph/" class="partner-link" target="_blank">
-                    <div class="partner-card">
-
+                <!-- TESDA -->
+                <a href="https://www.tesda.gov.ph/" class="partner-link" target="_blank" rel="noopener">
+                    <div class="partner-card-big">
                         <div class="partner-card-content">
                             <h3>Technical Education and Skills Development Authority</h3>
-                            <span class="partner-role">Strategic Partner & Sponsor</span>
-                            <p>
-                            The Technical Education and Skills Development Authority is a 
-                            key partner in advancing vocational education and training initiatives. 
-                            Their support helps ensure that ABCCA's programs meet industry standards 
-                            and provide valuable skills to participants.
-                            </p>
+                            <span class="partner-role">Accreditation & Standards Body</span>
+                            <p>The Technical Education and Skills Development Authority (TESDA) is a key partner in advancing vocational education and training initiatives across the Philippines. Their framework and accreditation ensure that ABCCA's programs meet national competency standards, giving graduates a certification that is recognized and respected across industries nationwide.</p>
                         </div>
-
                         <div class="partner-card-image-wrap">
                             <img src="TESDA_LOGO.png" alt="Technical Education and Skills Development Authority">
                         </div>
-
                     </div>
-                    </a>
+                </a>
 
-                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Asian Business Cabletow Cooperative Academy</h4>
-                    <p>Non-Profit Educational Institution offering SMAW NC I and NC II certifications.</p>
+                    <h4>Asian Business Cabletow Cooperative Academy, Inc.</h4>
+                    <p>Non-Profit Educational Institution offering free SMAW NC I and NC II certifications in Cavite City.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -303,6 +109,7 @@
                         <li><a href="projects.html">Gallery</a></li>
                         <li><a href="sponsors.html">Requirements</a></li>
                         <li><a href="partners.html">Partners</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -310,9 +117,15 @@
                     <h4>Contact Info</h4>
                     <p>Email: abcca.tvet.cavite@abcca.edu.ph</p>
                     <p>Phone: (63) 997-5307-651</p>
-                    <p>Address: Judge Ibañez Street, Samonte Park, Barangay 62-A (Kangkong-A), San Roque District Cavite City</p>
+                    <p>Address: Judge Ibañez Street, Samonte Park, Brgy. 62-A, San Roque District, Cavite City</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Asian Business Cabletow Cooperative Acad
+                <p>&copy; 2026 Asian Business Cabletow Cooperative Academy, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <script src="script.js"></script>
+</body>
+</html>
